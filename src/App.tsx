@@ -25,9 +25,9 @@ export default function App() {
       const generatedPlan = await generateFitnessPlan(userProfile);
       setProfile(userProfile);
       setPlan(generatedPlan);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setError('Failed to generate your personalized plan. Please try again.');
+      setError(err.message || 'Failed to generate your personalized plan. Please try again.');
     } finally {
       setIsLoading(false);
     }
